@@ -1,0 +1,28 @@
+def imprimir(dados):
+    print("Dados do dicionário principal:")
+    for chave, valor in dados.items():
+        print(f"Chave: {chave}, Valor: {valor}")
+    dados.clear()
+
+
+dicionario_principal = {}
+dicionario_backup = {}
+
+
+while True:
+    chave = input("chave do dado (ou 's' para sair): ")
+    if chave == "s":
+        break
+    valor = input("valor do dado: ")
+    dicionario_principal[chave] = valor
+    dicionario_backup[chave] = valor
+    
+    if len(dicionario_principal) == 5:
+        imprimir(dicionario_principal)
+    
+if dicionario_principal:
+    imprimir(dicionario_principal)
+
+print("Dados do dicionário de backup:")
+for chave, valor in dicionario_backup.items():
+    print(f"Chave: {chave}, Valor: {valor}")
