@@ -1,0 +1,88 @@
+class Produto:
+    def __init__(self, autor, titulo, preco):
+        self.autor = autor
+        self.titulo = titulo
+        self.preco = preco
+
+    def calcular_total(self, quantidade):
+        return self.preco * quantidade
+
+    def exibir_informacoes(self):
+        print("Autor:", self.autor)
+        print("Título:", self.titulo)
+        print("Preço:", self.preco)
+
+
+class Livro(Produto):
+    def __init__(self, autor, titulo, preco, loja):
+        super().__init__(autor, titulo, preco)
+        self.loja = loja
+
+    def exibir_informacoes(self):
+        super().exibir_informacoes()
+        print("Loja:", self.loja)
+
+
+class CD(Produto):
+    def __init__(self, autor, titulo, preco, tipo):
+        super().__init__(autor, titulo, preco)
+        self.tipo = tipo
+
+    def exibir_informacoes(self):
+        super().exibir_informacoes()
+        print("Tipo:", self.tipo)
+
+
+class DVD(Produto):
+    def __init__(self, autor, titulo, preco, duracao):
+        super().__init__(autor, titulo, preco)
+        self.duracao = duracao
+
+    def exibir_informacoes(self):
+        super().exibir_informacoes()
+        print("Duração:", self.duracao)
+
+
+def criar_produto(classe_produto):
+    autor = input("Autor: ")
+    titulo = input("Titulo: ")
+    preco = float(input("Preço: "))
+
+    if classe_produto == Livro:
+        loja = input("Loja: ")
+        produto = Livro(autor, titulo, preco, loja)
+    elif classe_produto == CD:
+        tipo = input("Digite o Tipo do CD: ")
+        produto = CD(autor, titulo, preco, tipo)
+    elif classe_produto == DVD:
+        duracao = input("Digite a duração do DVD: ")
+        produto = DVD(autor, titulo, preco, duracao)
+
+    return produto
+
+
+while True:
+    print("Menu:")
+    print("1. Livro")
+    print("2. CD")
+    print("3. DVD")
+    print("4. Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        produto = criar_produto(Livro)
+    elif opcao == "2":
+        produto = criar_produto(CD)
+    elif opcao == "3":
+        produto = criar_produto(DVD)
+    elif opcao == "4":
+        break
+    else:
+        print("Opção inválida!")
+        continue
+
+    produto.exibir_informacoes()
+    quantidade = int(input("Digite a quantidade desejada: "))
+    total = produto.calcular_total(quantidade)
+    print("Total:", total)
