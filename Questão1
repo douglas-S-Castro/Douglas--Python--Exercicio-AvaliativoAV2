@@ -1,0 +1,28 @@
+pessoas = {}
+menor = {}
+
+while True:
+    nome = input("Digite o nome da pessoa (ou 's' para sair): ")
+    if nome.lower() == "s":
+        break
+    
+    idade = int(input("idade da pessoa: "))
+    cpf = input("CPF da pessoa: ")
+    
+    pessoas[cpf] = {'nome': nome, 'idade': idade, 'cpf': cpf}
+
+for cpf, pessoa in pessoas.copy().items():
+    if pessoa['idade'] < 18:
+        menor[cpf] = pessoa
+        del pessoas[cpf]
+
+print("\nLista de pessoas:")
+for pessoa in pessoas.values():
+    print("Nome:", pessoa['nome'])
+    print("Idade:", pessoa['idade'])
+    print("CPF:", pessoa['cpf'])
+print("\nLista de menores de 18 anos:")
+for menor in menor.values():
+    print("Nome:", menor['nome'])
+    print("Idade:", menor['idade'])
+    print("CPF:", menor['cpf'])
