@@ -1,0 +1,66 @@
+class Automovel:
+    def __init__(self, modelo, marca):
+        self.modelo = modelo
+        self.marca = marca
+    
+    def acelerar(self):
+        pass
+    def parar(self):
+        pass
+    
+class Carro(Automovel):
+    def __init__(self, modelo, marca, cor):
+        super().__init__(modelo, marca)
+        self.cor = cor
+    
+    def acelerar(self):
+        print("a Carro está acelerando")
+    def parar(self):
+        print("o Carro está freiando")
+
+class Caminhão(Automovel):
+    def __init__(self, modelo, marca, carga):
+        super().__init__(modelo, marca)
+        self.carga = carga
+    
+    def acelerar(self):
+        print("a Caminhão está acelerando")
+    def parar(self):
+        print("o Caminhão está freiando")
+
+class Caminhonete(Automovel):
+    def __init__(self, modelo, marca, peso):
+        super().__init__(modelo, marca)
+        self.peso = peso
+    
+    def acelerar(self):
+        print("a Caminhonete está acelerando")
+    def parar(self):
+        print("o Caminhonete está freiando")
+
+class Moto(Automovel):
+    def __init__(self, modelo, marca, cilindro):
+        super().__init__(modelo, marca)
+        self.cilindro = cilindro
+    
+    def acelerar(self):
+        print("a Moto está acelerando")
+    def parar(self):
+        print("o Moto está freiando")
+
+carro = Carro("Ford", "Mustang", "Vermelho")
+print("Carro:", carro.modelo, carro.marca, carro.cor)
+carro.acelerar()
+carro.parar()
+caminhão = Caminhão("Volvo", "FH16", 20000)
+print("\nCaminhão:", caminhão.modelo, caminhão.marca, caminhão.carga)
+caminhão.acelerar()
+caminhão.parar()
+caminhonete = Caminhonete("Ford", "Ranger", 32.0000)
+print("\nCaminhonete:", caminhonete.modelo, caminhonete.marca, caminhonete.peso)
+caminhonete.acelerar()
+caminhonete.parar()
+moto = Moto("Honda", "Fiat", "Mountain Bike")
+print("\nMoto:", moto.modelo, moto.marca, moto.cilindro)
+moto.acelerar()
+moto.parar()
