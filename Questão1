@@ -1,0 +1,41 @@
+def cadastrar():
+    nome = input("Digite o nome da pessoa: ")
+    idade = int(input("Digite a idade da pessoa: "))
+    cpf = input("Digite o CPF da pessoa: ")
+    pessoa = {"nome": nome, "idade": idade, "cpf": cpf}
+    return pessoa
+
+def dividindo(pessoas):
+    maiores = {}
+    menores = {}
+    for cpf, pessoa in pessoas.items():
+        if pessoa["idade"] >= 18:
+            maiores[cpf] = pessoa
+        else:
+            menores[cpf] = pessoa
+
+    return maiores, menores
+
+
+qtd_de_pessoas = int(input("Quantas pessoas iram se cadastrar: "))
+pessoas = {}
+
+for i in range(qtd_de_pessoas):
+    pessoa = cadastrar()
+    cpf = pessoa["cpf"]
+    pessoas[cpf] = pessoa
+    
+maiores, menores = dividindo(pessoas)
+    
+print("\nMaior de 18 anos:")
+for cpf, pessoa in maiores.items():
+    print(f"CPF: {cpf}")
+    print(f"Nome: {pessoa['nome']}")
+    print(f"Idade: {pessoa['idade']}")
+    
+
+print("\nMenor de 18 anos:")
+for cpf, pessoa in menores.items():
+    print(f"CPF: {cpf}")
+    print(f"Nome: {pessoa['nome']}")
+    print(f"Idade: {pessoa['idade']}")
